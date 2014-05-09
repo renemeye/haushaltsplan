@@ -1,0 +1,84 @@
+<%= form_for(@project, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @project.errors.any? %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h4>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, "Project name:", :class => "col-sm-1 control-label" %>
+    <div class="col-sm-11">
+      <%= f.text_field :name, :class => "form-control", :autofocus => true %>
+    </div>
+  </div>
+
+  <label class="col-sm-1 control-label">Contact Person:</label>
+
+  <div class="col-sm-5 well">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-sm-12">
+          <%= f.text_field :contact_person, :class => "form-control", :placeholder => "Contact person name" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <%= f.text_field :contact_telephone_no, :class => "form-control", :placeholder => "Contact telephone no."  %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <%= f.text_field :contact_e_mail_address, :class => "form-control", :placeholder => "Contact e-mail"  %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <label class="col-sm-1 control-label">Decision:</label>
+  <div class="col-sm-5 well">
+    <div class="row">
+    <div class="form-group">
+      <div class="col-sm-12">
+        <div class="input-group">
+          <span class="input-group-addon">€</span>
+          <%= f.text_field :decision_value, :class => "form-control", :placeholder=>"0,00", :"no-floatlabel" => true %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= f.text_field :decision_date, :class => "form-control", :"data-behaviour"=>'datepicker', :placeholder => "Date of decision" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= f.select :budget_entry_id, BudgetEntry.collection_for_budget_entries_select(@budget_entries),{include_blank: "(Haushaltsposten) bitte wählen..."},{ class:"form-control" } %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= f.text_field :decision_protocol_link, :class => "form-control", :placeholder=>"Protocol Link (with http://)" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :comment, "Comment:", :class => "col-sm-1 control-label" %>
+  <div class="col-sm-12">
+    <%= f.text_area :comment, :class => "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-10 col-sm-2">
+    <%= f.submit :class => "btn btn-primary pull-right" %>
+  </div>
+</div>
+
+<% end %>

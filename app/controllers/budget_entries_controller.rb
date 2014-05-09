@@ -1,5 +1,6 @@
 class BudgetEntriesController < ApplicationController
   before_action :set_budget_entry, only: [:show, :edit, :update, :destroy]
+  #before_filter :collection_for_budget_entries_select, :except => [:index, :show]
 
   # GET /budget_entries
   # GET /budget_entries.json

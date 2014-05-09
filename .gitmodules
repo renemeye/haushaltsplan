@@ -1,0 +1,3 @@
+[submodule "vendor/assets/javascripts/floatlabels.js"]
+	path = vendor/assets/javascripts/floatlabels.js
+	url = git@github.com:clubdesign/floatlabels.js.git

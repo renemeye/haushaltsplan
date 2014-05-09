@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to projects_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_project_path(@project), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show project</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @project.name %></dd>
+
+  <dt>Contact person:</dt>
+  <dd><%= @project.contact_person %></dd>
+
+  <dt>Contact telephone no:</dt>
+  <dd><%= @project.contact_telephone_no %></dd>
+
+  <dt>Contact e mail address:</dt>
+  <dd><%= @project.contact_e_mail_address %></dd>
+
+  <dt>Decision protocol link:</dt>
+  <dd><%= @project.decision_protocol_link %></dd>
+
+  <dt>Decision value:</dt>
+  <dd><%= @project.decision_value %></dd>
+
+  <dt>Comment:</dt>
+  <dd><%= @project.comment %></dd>
+
+  <dt>Decision date:</dt>
+  <dd><%= @project.decision_date %></dd>
+
+  <dt>Budget entry:</dt>
+  <dd><%= @project.budget_entry_id %></dd>
+
+</dl>

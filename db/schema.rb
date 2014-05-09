@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508065609) do
+ActiveRecord::Schema.define(version: 20140509193231) do
 
   create_table "budget_entries", force: true do |t|
     t.string   "name"
@@ -41,6 +41,21 @@ ActiveRecord::Schema.define(version: 20140508065609) do
     t.string   "title"
     t.text     "body"
     t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.string   "contact_person"
+    t.string   "contact_telephone_no"
+    t.string   "contact_e_mail_address"
+    t.string   "decision_protocol_link"
+    t.string   "decision_value"
+    t.text     "comment"
+    t.string   "decision_date"
+    t.text     "terms"
+    t.integer  "budget_entry_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

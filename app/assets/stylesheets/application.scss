@@ -11,4 +11,12 @@
  @import "compass";
  @import "bootstrap-generators";
  @import "bootstrap-variables";
+ @import "bootstrap-datepicker3";
  @import "budget";
+
+label.label-floatlabel {
+    font-weight: light !important;
+    font-size: 8px !important;
+    top: 3px !important;
+    left: 12px !important;
+}

@@ -1,4 +1,6 @@
 Haushaltsplan::Application.routes.draw do
+  resources :projects
+
   resources :budget_entries
 
   resources :budgets

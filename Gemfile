@@ -46,6 +46,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-generators', '~> 3.1.1'
+gem 'bootstrap-datepicker-rails'
 
 # Ability for Tree structures
 gem 'ancestry'

@@ -14,4 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require bootstrap-datepicker
+//= require floatlabels.js/floatlabels.js
 //= require_tree .
+
+$(document).ready(function(){
+  $('[data-behaviour~=datepicker]').datepicker();
+  $('.form-control[placeholder]:not([no-floatlabel])').floatlabel();
+})

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  contact_person: MyString
+  contact_telephone_no: MyString
+  contact_e_mail_address: MyString
+  decision_protocol_link: MyString
+  decision_value: MyString
+  comment: MyString
+  decision_date: MyString
+  budget_entry: 
+
+two:
+  name: MyString
+  contact_person: MyString
+  contact_telephone_no: MyString
+  contact_e_mail_address: MyString
+  decision_protocol_link: MyString
+  decision_value: MyString
+  comment: MyString
+  decision_date: MyString
+  budget_entry: 
