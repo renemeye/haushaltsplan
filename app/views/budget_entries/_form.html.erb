@@ -1,0 +1,53 @@
+<%= form_for(@budget_entry, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @budget_entry.errors.any? %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@budget_entry.errors.count, "error") %> prohibited this budget_entry from being saved:</h4>
+
+      <ul>
+      <% @budget_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, :class => "form-control" ,:autofocus=>true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :income, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :income, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :value_in_euro, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <div class="input-group">
+        <span class="input-group-addon">€</span>
+        <%= f.text_field :value_in_euro, :class => "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :parent_id, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select :parent_id, @parent_budget_entries,:id,:name, {include_blank: true, prompt: "Category?"},{ class:"form-control" } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :budget, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select :budget_id, @budgets,:id,:name, {include_blank: false},{ class:"form-control" } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

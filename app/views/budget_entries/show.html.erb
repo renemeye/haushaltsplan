@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to budget_entries_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_budget_entry_path(@budget_entry), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show budget_entry</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @budget_entry.name %></dd>
+
+  <dt>Income:</dt>
+  <dd><%= @budget_entry.income %></dd>
+
+  <dt>Value in euro:</dt>
+  <dd><%= @budget_entry.value_in_euro %></dd>
+
+  <dt>Parent budget entry:</dt>
+  <dd><%= @budget_entry.parent_id %></dd>
+
+  <dt>Budget:</dt>
+  <dd><%= @budget_entry.budget %></dd>
+
+</dl>

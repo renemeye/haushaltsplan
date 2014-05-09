@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  income: false
+  value_in_euro: 1.5
+  parent_budget_entry_id: 1
+  budget_id: 
+
+two:
+  name: MyString
+  income: false
+  value_in_euro: 1.5
+  parent_budget_entry_id: 1
+  budget_id: 

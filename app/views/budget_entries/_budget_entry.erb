@@ -1,0 +1,28 @@
+<li class="budget-entry list-group-item <%="income" if budget_entry.income %>">
+  <% unless budget_entry.has_children? %>
+    <i class="pull-right"><%= budget_entry.value_in_euro %> €</i>
+  <% end %>
+  <div class="media-body">
+      <%if budget_entry.has_children? && budget_entry.depth == 0 %><h4 class="media-heading"><%end%>
+        <%= budget_entry.name %>
+      <%if budget_entry.has_children? && budget_entry.depth == 0 %></h4><%end%>
+
+      <small class="menu">
+        ( <%= link_to 'Add', new_budget_entry_path(:parent_id => budget_entry.id, :income => budget_entry.income) %>
+        | <%= link_to 'Edit', edit_budget_entry_path(budget_entry) %>
+        | <%= link_to 'Destroy', budget_entry, method: :delete, data: { confirm: 'Are you sure?' } %>)
+      </small>
+      <%=
+      if budget_entry.has_children?
+        nested_budget_entries(sub_budget_entries)
+      end
+      %>
+      <% if budget_entry.has_children? %>
+        <b class="pull-right"><%= sum_nested_budget_entries(sub_budget_entries) %> €
+          <% unless budget_entry.value_in_euro.nil? %>
+            + <%=budget_entry.value_in_euro%> €
+          <% end %>
+        </b>
+      <% end %>
+  </div>
+</li>
